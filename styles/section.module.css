@@ -1,0 +1,38 @@
+.section {
+    padding: 100px 0px;
+    @apply gap-3 flex flex-col min-h-screen text-blue-100;
+}
+
+.link {
+    @apply text-orange-400;
+    text-decoration: none;
+    background-image: linear-gradient(#d99a5a, #d99a5a);
+    background-size: 0% 0.1em;
+    background-position-y: 100%;
+    background-position-x: 0%;
+    background-repeat: no-repeat;
+    transition: background-size 0.2s ease-in-out;
+}
+
+
+.link:hover {
+    background-size: 100% 0.1em;
+}
+
+.button {
+    transition: all;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+}
+
+.button:hover {
+    transform: scale(1.1);
+}
+
+.card {
+    @apply flex flex-col h-64 bg-gray-500/20 shadow-lg shadow-gray-800/40 rounded-md p-2 transition-all duration-300 ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}

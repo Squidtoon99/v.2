@@ -1,0 +1,17 @@
+.email {
+    padding: 10px 0.5em;
+    letter-spacing: 0.1em;
+    writing-mode: vertical-rl;
+    transition: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    animation-fill-mode: both;
+}
+
+.email:hover {
+    transform: translate(0, -4px);
+}
+
+.logo:hover {
+    transform: translate(0, -4px);
+}

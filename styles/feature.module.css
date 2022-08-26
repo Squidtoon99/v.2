@@ -1,0 +1,18 @@
+.link {
+    @apply inline-flex flex-shrink-0 font-semibold items-center justify-center leading-none no-underline overflow-hidden pt-1.5 relative rounded select-none text-center whitespace-nowrap;
+}
+
+.title {
+    @apply font-semibold leading-tight border-l border-orange-400 border-separate border-spacing-10;
+    padding: 0px 10px;
+}
+
+.image {
+    transition: all;
+    transition-timing-function: ease-in-out;
+    transition-duration: 300ms;
+}
+
+.image:hover {
+    transform: rotateY(8deg);
+}
