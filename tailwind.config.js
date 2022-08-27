@@ -92,7 +92,7 @@ module.exports = {
         'fade-up-in--special': 'fade-up-in--special 0.5s ease-out',
         'slide-up-out': 'slide-up-out 0.2s ease-out',
         'slide-down-in': 'slide-down-in 0.25s ease-out',
-        'gradient': 'gradient 15ss ease infinite',
+        'gradient': 'gradient 15s ease infinite',
       }
     },
   },

@@ -24,7 +24,7 @@ const SideBar: NextPage<{ isHome: boolean; }> = ({ isHome }) => {
             <div className={`w-1 h-32 bg-blue-100/80 rounded-full ${isHome ? 'animate-slide-left' : ''} motion-reduce:animate-none`} style={{ animationDelay: `${delay}ms`, animationFillMode: "backwards" }} />
             <a href="mailto:arjun@squid.pink" className={`hover:text-orange-400 ${styles.email}`}>
                 {'arjun@squid.pink'.split('').map((letter, index) => {
-                    return <span className="animate-slide-left inline-block" style={{ animationDelay: `${index * 45 + delay}ms`, animationFillMode: "backwards" }} key={index}>{letter}</span>;
+                    return <span className={`${isHome && 'animate-slide-left'} inline-block`} style={{ animationDelay: `${index * 45 + delay}ms`, animationFillMode: "backwards" }} key={index}>{letter}</span>;
                 })}
             </a>
         </div>
