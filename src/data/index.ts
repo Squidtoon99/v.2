@@ -5,7 +5,7 @@ import { Project } from '@/interfaces';
 
 const footer = `\n\n\n<Link href="/projects"><a class="text-gray-400 block mt-16 p-1 text-xl">&larr; Projects</a></Link>`;
 
-const projectsDirectory = path.join(process.cwd(), 'public/projects');
+const projectsDirectory = path.join(process.cwd(), 'projects');
 
 export function getProjectNames() {
     return fs.readdirSync(projectsDirectory);
