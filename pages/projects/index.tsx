@@ -7,30 +7,32 @@ import { useEffect, useRef } from "react";
 import { ExternalLink, FileText, GitHub } from "react-feather";
 
 const Projects: NextPage<{ projects: Project[]; }> = ({ projects }) => {
-    const revealTitle = useRef(null);
+    const revealHead = useRef(null);
     const revealProjects = useRef([]);
 
     useEffect(() => {
         async function animate() {
             const sr = (await import("scrollreveal")).default;
             // @ts-ignore
-            sr(srConfig()).reveal(revealTitle.current);
+            sr(srConfig(250)).reveal(revealHead.current);
+            console.log(revealProjects.current);
             for (let i = 0; i < revealProjects.current.length; i++) {
+                console.log(revealProjects.current[i]);
                 const sr = (await import("scrollreveal")).default;
-                revealProjects.current.forEach((ref, i) => sr(srConfig(i * 100)).reveal(ref));
+                revealProjects.current.forEach((ref, i) => sr(srConfig(200 + (i < 10 ? i * 100 : 1000))).reveal(ref));
             }
         }
         animate();
     }, []);
 
     return (
-        <section id="projects" className="flex flex-col" ref={revealTitle}>
-            <h1 className="text-3xl md:text-5xl lg:text-7xl font-semibold flex m" >
+        <section id="projects" className="flex flex-col" >
+            <h1 className="text-3xl md:text-5xl lg:text-7xl font-semibold flex m">
                 <span className="flex-grow">Archive</span>
             </h1>
 
             <table className="justify-start rounded-xl overflow-hidden bg-gradient-to-r from-orange-50/0 to-teal-50/0 p-10 my-3 max-w-56 gap-2" style={{ textAlignLast: "start" }}>
-                <thead>
+                <thead ref={revealHead}>
                     <tr>
                         <th className="pr-2 py-2 text-blue-100/80">Year</th>
                         <th className=" py-2 text-blue-100/80">Title</th>
@@ -41,8 +43,7 @@ const Projects: NextPage<{ projects: Project[]; }> = ({ projects }) => {
                 <tbody className="">
                     {projects.map((project, index) => {
                         return (
-
-                            <tr key={index} className="hover:bg-blue-200/10 transition-colors duration-300 ease-linear">
+                            <tr key={index} ref={el => revealProjects.current[index] = el} className="hover:bg-blue-200/10 transition-colors duration-300 ease-linear">
                                 <td className="border-none pr-4 py-2 text-orange-400/90 font-medium">{format(parseISO(project.date), "yyyy")}</td>
                                 <td className="odd:bg-orange-500/70 border-none pr-2 py-2 text-blue-100 font-medium">{project.title}</td>
                                 <td className="border-none pr-2 py-2 text-blue-100 font-medium hidden lg:block md:block max-w-md">{project.tags.map((tag) => {
@@ -58,11 +59,9 @@ const Projects: NextPage<{ projects: Project[]; }> = ({ projects }) => {
                                     </div>
                                 </td>
                             </tr>
-
                         );
                     }
-
-                    )}
+                )}
                 </tbody>
             </table>
         </section >
