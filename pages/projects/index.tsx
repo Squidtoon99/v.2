@@ -7,8 +7,8 @@ import { useEffect, useRef } from "react";
 import { ExternalLink, FileText, GitHub } from "react-feather";
 
 const Projects: NextPage<{ projects: Project[]; }> = ({ projects }) => {
-    const revealHead = useRef(null);
-    const revealProjects = useRef([]);
+    const revealHead = useRef<any>(null);
+    const revealProjects = useRef<any[]>([]);
 
     useEffect(() => {
         async function animate() {
